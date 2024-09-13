@@ -1,3 +1,18 @@
+deploy:
+  stage: deploy
+  tags:
+    - gke
+  script:
+    - echo "Deploying via SSH..."
+    - ssh root@34.101.97.251 'bash -s' < deploy.sh
+  before_script:
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - ssh-add <(echo "$SSH_PRIVATE_KEY")
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+
 build-job:
   stage: build
   tags:
