@@ -1,7 +1,14 @@
 stages:
   - build
   - deploy
+  - test
 
+test:
+  stage: test
+  tags:
+    - development
+  script:
+    - echo $DB_HOST_DEV
 # Development environment
 build_dev:
   stage: build
@@ -10,7 +17,7 @@ build_dev:
   rules:
     - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "dev"'
   script:
-    - exit 1
+    - echo $DB_HOST_DEV
     # - echo "BUILDING IMAGE"
     # - docker build -t $IMAGE_NAME:latest .
     # - docker push $IMAGE_NAME:latest
