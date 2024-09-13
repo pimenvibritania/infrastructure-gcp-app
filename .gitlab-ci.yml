@@ -14,6 +14,8 @@ build_dev:
 
 deploy_dev:
   stage: deploy
+  needs:
+    - build_dev
   # rules:
   #   - if: '$CI_COMMIT_BRANCH == "dev"'
   script:
