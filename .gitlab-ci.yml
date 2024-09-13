@@ -9,11 +9,13 @@ test:
     - development
   script:
     - export NAMESPACE_SRE=sre-application
+    - echo $NAMESPACE_SRE
+    - gcloud container clusters get-credentials development-cluster --zone asia-southeast2-a --project sre-development-2613
     - docker build -t pimenvibritania/sre-example:dev-$CI_COMMIT_SHORT_SHA -t pimenvibritania/sre-example:latest .
     - docker push pimenvibritania/sre-example:dev-$CI_COMMIT_SHORT_SHA
     - docker push pimenvibritania/sre-example:latest
-    - kubectl -n ${NAMESPACE_SRE} set image deployment/${NAMESPACE_SRE}-app-deployment ${NAMESPACE_SRE}-app=pimenvibritania/sre-example:dev-$CI_COMMIT_SHORT_SHA
-    - kubectl -n ${NAMESPACE_SRE} restart deployment/${NAMESPACE_SRE}-app-deployment
+    - kubectl -n $NAMESPACE_SRE set image deployment/$NAMESPACE_SRE-app-deployment $NAMESPACE_SRE-app=pimenvibritania/sre-example:dev-$CI_COMMIT_SHORT_SHA
+    - kubectl -n $NAMESPACE_SRE restart deployment/$NAMESPACE_SRE-app-deployment
 
 # Development environment
 build_dev:
