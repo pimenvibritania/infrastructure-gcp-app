@@ -21,12 +21,11 @@ test:
     - echo "Waiting to delete..."
     - sleep 5
     - kubectl -n $NAMESPACE_SRE create secret generic $NAMESPACE_SRE-app-secret --from-literal=database=$DB_HOST_DEV --from-literal=host=$DB_HOST_DEV
-      
 # Development environment
 build_dev:
   stage: build
   tags:
-    - development
+    - development 
   rules:
     - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "dev"'
   script:
