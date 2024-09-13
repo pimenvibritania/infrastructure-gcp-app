@@ -16,8 +16,8 @@ deploy_dev:
   stage: deploy
   needs:
     - build_dev
-  # rules:
-  #   - if: '$CI_COMMIT_BRANCH == "dev"'
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "dev"'
   script:
     - echo "deployed"
     # - kubectl set image deployment/dev-deployment dev-container=$IMAGE_NAME:latest --namespace=dev
