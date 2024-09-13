@@ -1,10 +1,14 @@
 build-job:
   stage: build
+  tags:
+    - gke
   script:
     - echo "Hello, $GITLAB_USER_LOGIN!"
 
 test-job1:
   stage: test
+  tags:
+    - gke
   script:
     - echo "This job tests something"
 
