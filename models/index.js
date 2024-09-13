@@ -9,10 +9,10 @@ const config = require('dotenv').config().parsed
 
 const db = {};
 const sequelize = new Sequelize(
-  process.env.database || config.database,
-  process.env.username || config.username,
-  process.env.password || config.password, {
-    host: process.env.host || config.host,
+  process.env.database || config?.database,
+  process.env.username || config?.username,
+  process.env.password || config?.password, {
+    host: process.env.host || config?.host,
     dialect: 'postgres',
 });
 
