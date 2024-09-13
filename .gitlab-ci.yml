@@ -5,15 +5,20 @@ stages:
 # Development environment
 build_dev:
   stage: build
+  tags:
+    - development
   rules:
     - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "dev"'
   script:
-    - echo "BUILDING IMAGE"
+    - exit 1
+    # - echo "BUILDING IMAGE"
     # - docker build -t $IMAGE_NAME:latest .
     # - docker push $IMAGE_NAME:latest
 
 deploy_dev:
   stage: deploy
+  tags:
+    - development
   needs:
     - build_dev
   rules:
