@@ -2,6 +2,15 @@ stages:
   - build
   - deploy
 
+test:
+  stage: build
+  tags:
+    - development 
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "dev" && $CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_STATE == "merged"'
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_COMMIT_REF_NAME == "dev"'
+  script:
+    - echo "TEST"
 # Development environment
 build-dev:
   stage: build
