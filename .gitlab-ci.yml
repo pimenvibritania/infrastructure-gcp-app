@@ -8,7 +8,7 @@ build-dev:
   tags:
     - development 
   rules:
-    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "dev"'
+    - if: '$CI_MERGE_REQUEST_APPROVED && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "dev" && $CI_COMMIT_BRANCH == "dev"'
   script:
     - docker build -t pimenvibritania/sre-example:dev-$CI_COMMIT_SHORT_SHA -t pimenvibritania/sre-example:latest .
     - docker push pimenvibritania/sre-example:dev-$CI_COMMIT_SHORT_SHA
