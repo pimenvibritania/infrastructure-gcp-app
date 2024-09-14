@@ -6,6 +6,12 @@
 | Development | [sre.development.pimenvibritania.site](https://sre.development.pimenvibritania.site/) |
 | Production | [sre.pimenvibritania.site](https://sre.pimenvibritania.site/) |
 
+## Database URL
+| Environment | Internal     | External (HA-Proxy)|
+| :-------- | :------- | :------- | 
+| Development | internal-sre-postgresql.development.pimenvibritania.site | sre-postgresql.development.pimenvibritania.site |
+| Production | internal-sre-postgresql.production.pimenvibritania.site| sre-postgresql.production.pimenvibritania.site |
+
 ## Provisioning Infrastructure
 Please refer [this Repository](https://gitlab.com/pimenvibritania/sre-infra) documentation to provisioning infrastructure!
 
