@@ -1,5 +1,11 @@
 # SRE
 
+## Application URL
+| Environment | Host     |
+| :-------- | :------- | 
+| Development | [sre.development.pimenvibritania.site](https://sre.development.pimenvibritania.site/) |
+| Production | [sre.pimenvibritania.site](https://sre.pimenvibritania.site/) |
+
 ## Provisioning Infrastructure
 Please refer [this Repository](https://gitlab.com/pimenvibritania/sre-infra) documentation to provisioning infrastructure!
 
