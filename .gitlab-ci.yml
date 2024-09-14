@@ -29,7 +29,8 @@ build_dev:
   tags:
     - development 
   rules:
-    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "dev"'
+    # - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "dev"'
+      - if: '$CI_COMMIT_BRANCH == "dev"'
   script:
     - echo $DB_HOST_DEV
     - $CI_COMMIT_SHORT_SHA
