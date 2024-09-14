@@ -32,7 +32,6 @@ deploy-dev:
     - build-dev
   rules:
     - if: $CI_COMMIT_BRANCH == "dev"
-    # - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "dev"'
   script:
     - export NAMESPACE_SRE=sre-application
     - echo $NAMESPACE_SRE
@@ -53,7 +52,6 @@ migration-dev:
     - deploy-dev
   rules:
     - if: $CI_COMMIT_BRANCH == "dev"
-    # - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "dev"'
   script:
     - export NAMESPACE_SRE=sre-application
     - echo $NAMESPACE_SRE
