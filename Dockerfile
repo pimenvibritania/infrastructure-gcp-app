@@ -7,10 +7,6 @@ COPY package*.json ./
 
 RUN npm install --only=production
 
-# RUN npm run migrate
-
-# RUN npm run seed
-
 COPY . .
 
 FROM node:18-alpine
